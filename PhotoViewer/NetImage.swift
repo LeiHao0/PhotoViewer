@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+var imagesStore = [String: Data]()
+
 struct NetImage: View {
+        
     private enum LoadState {
         case loading, success, failure
     }
@@ -20,19 +23,27 @@ struct NetImage: View {
             guard let parsedURL = URL(string: url) else {
                 fatalError("Invalid URL: \(url)")
             }
+            
+            if let data = imagesStore[url], data.count > 0 {
+                self.data = data
+                self.state = .success
+            } else {
+                URLSession.shared.dataTask(with: parsedURL) { data, _, _ in
+                    if let data = data, data.count > 0 {
+                        self.data = data
+                        self.state = .success
+                        DispatchQueue.main.async {
+                             imagesStore[url] = data
+                        }
+                    } else {
+                        self.state = .failure
+                    }
 
-            URLSession.shared.dataTask(with: parsedURL) { data, _, _ in
-                if let data = data, data.count > 0 {
-                    self.data = data
-                    self.state = .success
-                } else {
-                    self.state = .failure
-                }
-
-                DispatchQueue.main.async {
-                    self.objectWillChange.send()
-                }
-            }.resume()
+                    DispatchQueue.main.async {
+                        self.objectWillChange.send()
+                    }
+                }.resume()
+            }
         }
     }
 

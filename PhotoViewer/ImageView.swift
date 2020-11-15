@@ -10,8 +10,21 @@ import SwiftUI
 struct ImageView: View {
     let imgURL: String
     
+    @State private var isFit = true
+    
     var body: some View {
-        Text(imgURL)
+        VStack {
+            
+            Spacer(minLength: 0)
+            NetImage(url: imgURL).aspectRatio(contentMode: isFit ? .fit : .fill)
+                .onTapGesture(perform: {
+                    isFit = !isFit
+                })
+                .animation(.easeInOut)
+                .edgesIgnoringSafeArea(.all)
+            Spacer(minLength: 0)
+        }
+            
     }
 }
 

@@ -16,7 +16,7 @@ struct CardView: View {
         NetImage(url: imgURL)
             .aspectRatio(contentMode: .fit)
             .cornerRadius(12)
-            .padding(10)
+            .padding(0)
     }
 }
 

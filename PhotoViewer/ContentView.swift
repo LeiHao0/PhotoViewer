@@ -11,16 +11,14 @@ let imgURL = "https://loremflickr.com/320/240?lock="
 
 struct ContentView: View {
     
+    @State private var layout = 1
     
     let ids = (0...50)
-    let columnns = [
-        GridItem(.adaptive(minimum: 240))
-    ]
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columnns) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: layout)) {
                     ForEach(ids, id: \.self) { id in
                         NavigationLink(
                             destination: ImageView(imgURL: "\(imgURL)\(id)"),
@@ -30,10 +28,16 @@ struct ContentView: View {
                     }
                     
                 }
-                .padding(.horizontal)
+                .padding(.all)
+                .animation(.interactiveSpring())
             }
             .navigationTitle("PhotoViewer")
             .accentColor(.primary)
+            .navigationBarItems(trailing: Button(action: {
+                layout = (layout)%3+1
+            } ) {
+                Text(Image(systemName: "rectangle.grid.\(layout)x2"))
+            })
         }
     }
 }
