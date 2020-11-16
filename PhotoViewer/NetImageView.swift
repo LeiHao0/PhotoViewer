@@ -9,7 +9,7 @@ import SwiftUI
 
 var imagesStore = [String: Data]()
 
-struct NetImage: View {
+struct NetImageView: View {
     private enum LoadState {
         case loading, success, failure
     }
@@ -76,6 +76,6 @@ struct NetImage: View {
 
 struct NetImage_Previews: PreviewProvider {
     static var previews: some View {
-        NetImage(url: imgURL + "0")
+        NetImageView(url: imgURL + "0")
     }
 }

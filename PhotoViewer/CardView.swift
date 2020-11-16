@@ -13,7 +13,7 @@ struct CardView: View {
     @State private var scale: CGFloat = 1.0
 
     var body: some View {
-        NetImage(url: imgURL)
+        NetImageView(url: imgURL)
             .aspectRatio(contentMode: .fit)
             .cornerRadius(12)
             .padding(0)

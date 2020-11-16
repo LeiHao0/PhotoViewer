@@ -13,7 +13,7 @@
 		AB1E1CC5255FD13900B0654A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E1CC4255FD13900B0654A /* ContentView.swift */; };
 		AB1E1CC7255FD13B00B0654A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1E1CC6255FD13B00B0654A /* Assets.xcassets */; };
 		AB1E1CCA255FD13B00B0654A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1E1CC9255FD13B00B0654A /* Preview Assets.xcassets */; };
-		AB1E1CD4255FD22000B0654A /* NetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E1CD3255FD22000B0654A /* NetImage.swift */; };
+		AB1E1CD4255FD22000B0654A /* NetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1E1CD3255FD22000B0654A /* NetImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +25,7 @@
 		AB1E1CC6255FD13B00B0654A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB1E1CC9255FD13B00B0654A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB1E1CCB255FD13B00B0654A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB1E1CD3255FD22000B0654A /* NetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetImage.swift; sourceTree = "<group>"; };
-		AB6B328B25624878008BBB0D /* PhotoViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoViewer.entitlements; sourceTree = "<group>"; };
+		AB1E1CD3255FD22000B0654A /* NetImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +58,11 @@
 		AB1E1CC1255FD13900B0654A /* PhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				AB6B328B25624878008BBB0D /* PhotoViewer.entitlements */,
 				AB1E1CC2255FD13900B0654A /* PhotoViewerApp.swift */,
 				AB1E1CC4255FD13900B0654A /* ContentView.swift */,
 				AB02EC63256101120010B1BA /* CardView.swift */,
 				AB02EC6625610C2A0010B1BA /* ImageView.swift */,
-				AB1E1CD3255FD22000B0654A /* NetImage.swift */,
+				AB1E1CD3255FD22000B0654A /* NetImageView.swift */,
 				AB1E1CC6255FD13B00B0654A /* Assets.xcassets */,
 				AB1E1CCB255FD13B00B0654A /* Info.plist */,
 				AB1E1CC8255FD13B00B0654A /* Preview Content */,
@@ -150,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB02EC6725610C2A0010B1BA /* ImageView.swift in Sources */,
-				AB1E1CD4255FD22000B0654A /* NetImage.swift in Sources */,
+				AB1E1CD4255FD22000B0654A /* NetImageView.swift in Sources */,
 				AB1E1CC5255FD13900B0654A /* ContentView.swift in Sources */,
 				AB1E1CC3255FD13900B0654A /* PhotoViewerApp.swift in Sources */,
 				AB02EC64256101120010B1BA /* CardView.swift in Sources */,
@@ -297,7 +295,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,7 +320,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

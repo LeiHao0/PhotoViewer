@@ -13,7 +13,6 @@ let imgURL = "https://loremflickr.com/320/240?lock="
 struct ContentView: View {
     @State private var layout = 1
     @State private var ids = (0 ... 3).map { $0 }
-
     @State private var id: Int?
 
     var body: some View {

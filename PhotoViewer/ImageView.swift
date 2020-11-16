@@ -14,7 +14,7 @@ struct ImageView: View {
 
     var body: some View {
         VStack {
-            NetImage(url: imgURL).aspectRatio(contentMode: isFit ? .fit : .fill)
+            NetImageView(url: imgURL).aspectRatio(contentMode: isFit ? .fit : .fill)
                 .onTapGesture(perform: {
                     isFit = !isFit
                 })
@@ -31,8 +31,8 @@ struct ImageView: View {
 
     private func actionSheet() {
         if let data = imagesStore[imgURL], let image = UIImage(data: data) {
-            let av = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-            UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+            let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
         }
     }
 }
