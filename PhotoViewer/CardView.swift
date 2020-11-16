@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CardView: View {
     let imgURL: String
-    
+
     @State private var scale: CGFloat = 1.0
-    
+
     var body: some View {
         NetImage(url: imgURL)
             .aspectRatio(contentMode: .fit)
@@ -22,6 +22,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(imgURL: imgURL+"0")
+        CardView(imgURL: imgURL + "0")
     }
 }

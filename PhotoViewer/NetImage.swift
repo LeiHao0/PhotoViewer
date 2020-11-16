@@ -10,7 +10,6 @@ import SwiftUI
 var imagesStore = [String: Data]()
 
 struct NetImage: View {
-        
     private enum LoadState {
         case loading, success, failure
     }
@@ -23,17 +22,17 @@ struct NetImage: View {
             guard let parsedURL = URL(string: url) else {
                 fatalError("Invalid URL: \(url)")
             }
-            
+
             if let data = imagesStore[url], data.count > 0 {
                 self.data = data
-                self.state = .success
+                state = .success
             } else {
                 URLSession.shared.dataTask(with: parsedURL) { data, _, _ in
                     if let data = data, data.count > 0 {
                         self.data = data
                         self.state = .success
                         DispatchQueue.main.async {
-                             imagesStore[url] = data
+                            imagesStore[url] = data
                         }
                     } else {
                         self.state = .failure
@@ -48,32 +47,35 @@ struct NetImage: View {
     }
 
     @StateObject private var loader: Loader
-    var loading: Image
     var failure: Image
 
     var body: some View {
-        selectImage()
-            .resizable()
-    }
-
-    init(url: String, loading: Image = Image(systemName: "photo"), failure: Image = Image(systemName: "multiply.circle")) {
-        _loader = StateObject(wrappedValue: Loader(url: url))
-        self.loading = loading
-        self.failure = failure
-    }
-
-    private func selectImage() -> Image {
-        switch loader.state {
-        case .loading:
-            return loading
-        case .failure:
-            return failure
-        default:
-            if let image = UIImage(data: loader.data) {
-                return Image(uiImage: image)
-            } else {
-                return failure
+        if let image = UIImage(data: loader.data) {
+            Image(uiImage: image).resizable()
+        } else {
+            switch loader.state {
+            case .loading:
+                VStack {
+                    ProgressView()
+                }.frame(height: 80.0)
+            default:
+                if let image = UIImage(data: loader.data) {
+                    Image(uiImage: image).resizable()
+                } else {
+                    failure.resizable()
+                }
             }
         }
+    }
+
+    init(url: String, failure: Image = Image(systemName: "multiply.circle")) {
+        _loader = StateObject(wrappedValue: Loader(url: url))
+        self.failure = failure
+    }
+}
+
+struct NetImage_Previews: PreviewProvider {
+    static var previews: some View {
+        NetImage(url: imgURL + "0")
     }
 }
