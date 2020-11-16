@@ -21,6 +21,19 @@ struct ImageView: View {
                 .animation(.easeInOut)
                 .edgesIgnoringSafeArea(.all)
         }
+        .navigationBarItems(
+            trailing:
+            Button(action: actionSheet, label: {
+                Text(Image(systemName: "square.and.arrow.up"))
+            })
+        )
+    }
+
+    private func actionSheet() {
+        if let data = imagesStore[imgURL], let image = UIImage(data: data) {
+            let av = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+        }
     }
 }
 

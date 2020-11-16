@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 let imgURL = "https://loremflickr.com/320/240?lock="
 
@@ -13,28 +14,27 @@ struct ContentView: View {
     @State private var layout = 1
     @State private var ids = (0 ... 3).map { $0 }
 
+    @State private var id: Int?
+
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: layout)) {
                     ForEach(ids, id: \.self) { id in
                         NavigationLink(
-                            destination: ImageView(imgURL: "\(imgURL)\(id)"),
+                            destination:
+                            ImageView(imgURL: "\(imgURL)\(id)"),
+
                             label: {
                                 CardView(imgURL: "\(imgURL)\(id)")
                             }
                         )
                     }
-                    .onDelete(perform: { _ in
-
-                    })
-                    .onMove(perform: move)
                 }
                 .padding(.all)
                 .animation(.interactiveSpring())
             }
             .navigationTitle("PhotoViewer")
-
             .accentColor(.primary)
             .navigationBarItems(
                 leading:
@@ -51,10 +51,6 @@ struct ContentView: View {
                 }
             )
         }
-    }
-
-    func move(from source: IndexSet, to destination: Int) {
-        ids.move(fromOffsets: source, toOffset: destination)
     }
 }
 

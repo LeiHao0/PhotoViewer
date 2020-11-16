@@ -22,6 +22,8 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(imgURL: imgURL + "0")
+        NavigationView {
+            CardView(imgURL: imgURL + "0")
+        }
     }
 }
