@@ -26,6 +26,7 @@
 		AB1E1CC9255FD13B00B0654A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB1E1CCB255FD13B00B0654A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB1E1CD3255FD22000B0654A /* NetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetImage.swift; sourceTree = "<group>"; };
+		AB6B328B25624878008BBB0D /* PhotoViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoViewer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		AB1E1CC1255FD13900B0654A /* PhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				AB6B328B25624878008BBB0D /* PhotoViewer.entitlements */,
 				AB1E1CC2255FD13900B0654A /* PhotoViewerApp.swift */,
 				AB1E1CC4255FD13900B0654A /* ContentView.swift */,
 				AB02EC63256101120010B1BA /* CardView.swift */,
@@ -279,6 +281,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhotoViewer/PhotoViewer.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoViewer/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -292,6 +295,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.leihao.PhotoViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhotoViewer/PhotoViewer.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoViewer/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -315,6 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.leihao.PhotoViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
